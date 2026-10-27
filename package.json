@@ -1,0 +1,13 @@
+{
+  "name": "room-edit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node railway-server.mjs",
+    "test": "node tests/interview.mjs && node tests/marketplace.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
