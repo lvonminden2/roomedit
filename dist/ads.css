@@ -1,0 +1,8 @@
+.ad-slot{position:relative;margin-top:22px;border:1.5px dashed #c3cbbd;border-radius:10px;background:repeating-linear-gradient(135deg,#f7f6f1 0 12px,#f1f0ea 12px 24px);color:#4f5a4f;text-align:center;aspect-ratio:300/250;display:flex;align-items:center;justify-content:center;padding:22px 18px;box-sizing:border-box}
+.ad-slot-tall{aspect-ratio:300/420}
+.ad-tag{position:absolute;top:8px;left:8px;font:700 10px Arial,sans-serif;letter-spacing:1.2px;text-transform:uppercase;background:#fff;border:1px solid #d5dbd0;color:#6b746a;border-radius:4px;padding:2px 6px}
+.ad-body{display:flex;flex-direction:column;align-items:center;gap:8px}
+.ad-slot strong{font-family:Georgia,serif;font-size:23px;font-weight:400;color:var(--ink,#232b26);letter-spacing:-.3px}
+.ad-slot p{margin:0;font-size:13px;line-height:1.5;color:#5f6a5e;max-width:230px}
+.ad-size{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#8a9288;margin-top:4px}
+@media(max-width:1000px){.ad-slot,.ad-slot-tall{aspect-ratio:auto;min-height:150px}}
