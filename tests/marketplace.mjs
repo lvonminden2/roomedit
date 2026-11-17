@@ -5,6 +5,11 @@ assert.ok(filterMarketplace(new URLSearchParams('available=true')).every(p=>p.st
 assert.ok(filterMarketplace(new URLSearchParams('budget=100')).every(p=>p.price<=100));
 assert.equal(filterMarketplace(new URLSearchParams('budget=bogus')).length,0);
 assert.ok(filterMarketplace(new URLSearchParams('portable=true')).every(p=>p.portable));
+const asc=filterMarketplace(new URLSearchParams('sort=price-asc')).map(p=>p.price);assert.deepEqual(asc,[...asc].sort((a,b)=>a-b));
+const near=filterMarketplace(new URLSearchParams('sort=nearest&distance=4'));assert.ok(near.length&&near.every(p=>p.distance<=4));assert.ok(near.every((p,i)=>!i||near[i-1].distance<=p.distance));
+assert.equal(filterMarketplace(new URLSearchParams('distance=-1')).length,0);
+assert.ok(filterMarketplace(new URLSearchParams('q=sofa')).every(p=>p.category==='sofa'||p.name.toLowerCase().includes('sofa')));
+assert.equal((await worker.fetch(new Request('https://example.test/marketplace.css'),{},{})).headers.get('content-type'),'text/css; charset=utf-8');
 const response=await worker.fetch(new Request('https://example.test/api/marketplace?platform=Facebook%20Marketplace&available=true'),{},{});
 assert.equal(response.status,200);const body=await response.json();assert.equal(body.live,false);assert.equal(body.mode,'demo');assert.ok(body.listings.length);assert.ok(body.listings.every(p=>p.platform==='Facebook Marketplace'));
 assert.equal((await worker.fetch(new Request('https://example.test/api/marketplace',{method:'POST'}),{},{})).status,405);
