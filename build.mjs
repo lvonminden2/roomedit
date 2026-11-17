@@ -1,7 +1,7 @@
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {catalog} from './dist/catalog.js';
 const assets={};
-for(const name of ['index.html','app.js','photo.js','photo.css','catalog.js','matcher-worker.js','room-tools.js','room-tools.css','marketplace.js']){
+for(const name of ['index.html','app.js','photo.js','photo.css','catalog.js','matcher-worker.js','room-tools.js','room-tools.css','marketplace.js','marketplace.css']){
  const type=name.endsWith('.html')?'text/html; charset=utf-8':name.endsWith('.css')?'text/css; charset=utf-8':'text/javascript; charset=utf-8';
  assets['/'+name]={type,body:await readFile('dist/'+name,'utf8')};
 }
